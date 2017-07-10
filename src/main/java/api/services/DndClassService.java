@@ -1,8 +1,7 @@
-package api.dndclass;
+package api.services;
 
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
+import api.entities.DndClass;
 
 import java.util.List;
 
