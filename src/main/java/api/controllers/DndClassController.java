@@ -7,6 +7,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.sound.midi.Patch;
+import java.util.Map;
+
 @RestController
 @CrossOrigin
 public class DndClassController {
@@ -18,6 +21,12 @@ public class DndClassController {
     @GetMapping("/classes")
     public ResponseEntity<Object> getAllDndClasses(){
         return new ResponseEntity<>(dndClassService.findAll(), HttpStatus.OK);
+    }
+
+    @PatchMapping("/classes/{index}")
+    public ResponseEntity<Object> patchDndClass(@PathVariable int index, @RequestBody Map<String, Object> patch){
+        dndClassService.patch(index, patch);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @PostMapping("/classes")

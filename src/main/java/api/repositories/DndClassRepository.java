@@ -5,4 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface DndClassRepository extends CrudRepository<DndClass, String> {
 
+    DndClass findByIndex(int index);
 }

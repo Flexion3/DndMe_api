@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class DndClassServiceImpl implements DndClassService {
@@ -25,7 +26,22 @@ public class DndClassServiceImpl implements DndClassService {
     }
 
     @Override
+    public void deleteAll() {
+        dndClassRepository.deleteAll();
+    }
+
+    @Override
+    public DndClass find(int index) {
+        return dndClassRepository.findByIndex(index);
+    }
+
+    @Override
     public List<DndClass> findAll() {
         return (List<DndClass>)dndClassRepository.findAll();
+    }
+
+    @Override
+    public DndClass patch(int index, Map<String, Object> dndPatch) {
+        return null;
     }
 }
